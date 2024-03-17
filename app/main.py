@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from typing import List
 from .models import Process, ScheduleRequest, ProcessResponse
 from .scheduling import round_robin_scheduling
-app = FastAPI()
+
 app = FastAPI(docs_url="/python_api/redoc")
 
 @app.post("/schedule/", response_model=List[ProcessResponse])
