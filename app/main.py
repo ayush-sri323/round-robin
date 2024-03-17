@@ -2,8 +2,9 @@ from fastapi import FastAPI
 from typing import List
 from .models import Process, ScheduleRequest, ProcessResponse
 from .scheduling import round_robin_scheduling
-
+from flask_restx import Api, Resource
 app = FastAPI()
+api = Api(app, doc='/python_api/redoc')
 
 @app.post("/schedule/", response_model=List[ProcessResponse])
 async def schedule(schedule_request: ScheduleRequest):
